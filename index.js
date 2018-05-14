@@ -41,8 +41,8 @@ module.exports = function (rootPath = __dirname, opts = {}) {
 
       var files = yield readdir(path)
       if (opts.filter) {
-        files = files.filter(function (filename) {
-          return opts.filter(filename);
+        files = files.filter(function (filename, index) {
+          return opts.filter(filename, index);
         });
       }
       if (opts.removeHidden) {
